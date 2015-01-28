@@ -1,9 +1,9 @@
 " Vim syntax file
 " Language:       Symbolic Analysis Library (SAL)
 "                 http://sal.csl.sri.com/
-" Maintainer:     Brandon Borkholder
+" Maintainer:     Brandon Borkholder, Benjamin Jones <benjaminfjones@gmail.com>
 " Filenames:      *.sal
-" Last Change:    08 March 2007
+" Last Change:    28 January 2015
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
@@ -47,11 +47,11 @@ syn keyword SALTodo                       contained TODO FIXME XXX
 syn region SALcomment                     start=/%/               end=/$/        contains=SALTodo
 
 " SAL structures and types
-syn region SALrecordType                  start=/\[#/             end=/#\]/      contains=@SALtype
-syn region SALrangeType                   start=/\[[^#].*\.\./    end=/[^#]\]/   contains=@SALexpression
-syn region SALfunctionType                start=/\[[^#].*->/      end=/[^#]\]/   contains=@SALtype
-syn region SALsetType                     start=/{/               end=/}/        contains=@SALexpression
-syn region SALrecordLiteral               start=/(#/              end=/#)/
+syn region SALrecordType           start=/\[#/                   end=/#\]/      contains=@SALtype
+syn region SALrangeType            start=/\[\([^#].*\.\.\)\@=/   end=/#\@<!\]/  contains=@SALexpression
+syn region SALfunctionType         start=/\[\([^#].*\<->\)\@=/   end=/#\@<!\]/  contains=@SALtype
+syn region SALsetType              start=/{/                     end=/}/        contains=@SALexpression
+syn region SALrecordLiteral        start=/(#/                    end=/#)/
 
 " SAL operators and relations
 syn match SALrelation                     /\(=\|\/=\|=>\|<\|[^-]>\|<=\|>=\)/
